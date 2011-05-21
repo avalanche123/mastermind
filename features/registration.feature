@@ -6,7 +6,7 @@ Feature: registration
 
   Scenario: user sees a registration form
     Given I am not logged in
-    When I go to registration page
+    When I go to the registration page
     Then I should see "Mastermind"
     And I should see "Email"
     And I should see "Password"
@@ -14,7 +14,7 @@ Feature: registration
 
   Scenario: user submits a registration form
     Given I am not logged in
-    And I am on registration page
+    And I am on the registration page
     When I fill in the following:
       | Email                 | mallluhuct@gmail.com |
       | Password              | Pa55W0rd             |

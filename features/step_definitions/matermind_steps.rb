@@ -1,7 +1,6 @@
-Given /^I am not logged in$/ do
-  visit('/users/sign_out')
-end
-
-Then /^I should be logged in$/ do
-  pending
+Then /^I should see the leader board$/ do
+  Then %{I should see "User Id"}
+  And %{I should see "Wins"}
+  And %{I should see "Loses"}
+  And %{I should see "ANG"}
 end
