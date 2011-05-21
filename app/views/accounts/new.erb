@@ -1,0 +1,17 @@
+<h1>Registration</h1>
+
+<section id="registration_form">
+  <%= form_for :account, @account, :url => { :action => "create" } do |f| %>
+    <ol>
+      <li>
+        <%= label_tag(:username, "Username:") %>
+        <%= f.text_field :username %>
+      </li>
+      <li>
+        <%= label_tag(:password, "Password:") %>
+        <%= f.password_field :password %>
+      </li>
+      <li><%= submit_tag "Register" %></li>
+    </ol>
+  <% end %>
+</section>
