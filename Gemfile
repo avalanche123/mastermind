@@ -32,3 +32,5 @@ group :development, :test do
   gem 'webrat'
   gem 'database_cleaner'
 end
+
+gem 'devise'

@@ -11,7 +11,7 @@ module NavigationHelpers
     when /^the home\s?page$/
       '/'
     when /^registration page/
-      '/account/new'
+      '/users/sign_up'
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

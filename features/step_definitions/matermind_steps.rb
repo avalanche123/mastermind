@@ -1,3 +1,7 @@
 Given /^I am not logged in$/ do
-  # do nothing yet
+  visit('/users/sign_out')
+end
+
+Then /^I should be logged in$/ do
+  pending
 end
