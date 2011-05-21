@@ -16,7 +16,7 @@ Feature: registration
     Given I am not logged in
     And I am on the registration page
     When I fill in the following:
-      | Email                 | mallluhuct@gmail.com |
+      | Email                 | user@example.com |
       | Password              | Pa55W0rd             |
       | Password confirmation | Pa55W0rd             |
     And I press "Sign up"
