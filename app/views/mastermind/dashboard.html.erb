@@ -2,15 +2,20 @@
   <caption>My Games</caption>
   <thead>
     <tr>
-      <th>Start</th>
-      <th>End</th>
+      <th>Number</th>
       <th>Guesses</th>
       <th>Result</th>
     </tr>
   </thead>
 
   <tbody>
-    
+    <% @user.games.each do |game| %>
+    <tr>
+      <td><%= game.id %></td>
+      <td><%= game.guesses_count %></td>
+      <td><%= game.won? ? 'won' : 'lost' %></td>
+    </tr>
+    <% end %>
   </tbody>
 
   <tfoot>
@@ -34,7 +39,14 @@
   </thead>
 
   <tbody>
-    
+    <% @leaders.each do |leader| %>
+    <tr>
+      <td><%= leader.id %></td>
+      <td><%= leader.games_won %></td>
+      <td><%= leader.games_lost %></td>
+      <td><%= leader.guesses_average %></td>
+    </tr>
+    <% end %>
   </tbody>
 
   <tfoot>

@@ -4,14 +4,14 @@ describe MastermindController do
   include Devise::TestHelpers
 
   describe "GET 'index'" do
-    describe "new user" do
+    context "new user" do
       it "renders anonymous home page" do
         get :index
         response.should render_template("index")
       end
     end
 
-    describe "authenticated user" do
+    context "authenticated user" do
       let (:user) { mock_model(User).as_null_object }
 
       before(:each) do
