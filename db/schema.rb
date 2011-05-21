@@ -10,17 +10,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110521195647) do
+ActiveRecord::Schema.define(:version => 20110521222610) do
 
   create_table "games", :force => true do |t|
+    t.integer  "user_id"
     t.boolean  "won"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "users", :force => true do |t|
-    t.string   "email",                                 :default => "", :null => false
-    t.string   "encrypted_password",     :limit => 128, :default => "", :null => false
+    t.string   "email",                                 :default => "",  :null => false
+    t.string   "encrypted_password",     :limit => 128, :default => "",  :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -31,9 +32,15 @@ ActiveRecord::Schema.define(:version => 20110521195647) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "games_won",                             :default => 0
+    t.integer  "games_lost",                            :default => 0
+    t.decimal  "average_guess_count",                   :default => 0.0
   end
 
+  add_index "users", ["average_guess_count"], :name => "index_users_on_average_guess_count"
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
+  add_index "users", ["games_lost"], :name => "index_users_on_games_lost"
+  add_index "users", ["games_won"], :name => "index_users_on_games_won"
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 
 end
