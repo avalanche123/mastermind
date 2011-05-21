@@ -10,7 +10,7 @@ module NavigationHelpers
 
     when /^the home\s?page$/
       '/'
-    when /^registration page$/
+    when /^the registration page$/
       '/users/sign_up'
     when /^the log in page$/
       '/users/sign_in'

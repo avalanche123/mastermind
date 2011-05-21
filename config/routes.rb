@@ -1,9 +1,7 @@
 Mastermind::Application.routes.draw do
-  devise_for :users
-  authenticate :user do
-    root :to => "mastermind#dashboard"
-  end
   root :to => "mastermind#index"
+  devise_for :users
+  resources :games
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
