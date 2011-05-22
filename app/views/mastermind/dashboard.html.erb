@@ -22,9 +22,7 @@
   <tfoot>
     <tr>
       <td colspan="4">
-        <%= form_tag '/games', :method => :post do %>
-          <%= submit_tag "Start a new game" %>
-        <% end %>
+        <%= link_to('Play', play_path) %>
       </td>
     </tr>
   </tfoot>

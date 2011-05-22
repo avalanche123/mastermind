@@ -16,3 +16,4 @@ Feature: home page
     When I go to the home page
     Then I should see "Logout"
     And I should see "Games"
+    And I should see "Play"
