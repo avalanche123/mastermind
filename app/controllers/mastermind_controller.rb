@@ -4,7 +4,6 @@ class MastermindController < ApplicationController
   def index
     if user_signed_in?
       @user = current_user
-      @leaders = User.find_top_ten
       render :action => "dashboard"
     end
   end

@@ -17,4 +17,3 @@ Feature: home page
     Then I should see "Logout"
     And I should see "Games"
     And I should see "Start a new game"
-    And I should see the leader board

@@ -26,30 +26,3 @@
     </tr>
   </tfoot>
 </table>
-
-<table>
-  <caption>Leader board</caption>
-  <thead>
-    <tr>
-      <th>User Id</th>
-      <th>Wins</th>
-      <th>Loses</th>
-      <th>ANG</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @leaders.each do |leader| %>
-    <tr>
-      <td><%= leader.id %></td>
-      <td><%= leader.games_won %></td>
-      <td><%= leader.games_lost %></td>
-      <td><%= leader.average_guess_count %></td>
-    </tr>
-    <% end %>
-  </tbody>
-
-  <tfoot>
-    
-  </tfoot>
-</table>
