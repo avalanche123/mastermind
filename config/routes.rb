@@ -2,8 +2,8 @@ Mastermind::Application.routes.draw do
   root :to => "mastermind#index"
   devise_for :users
   match '/leaders' => 'leaders#index'
-  resources :games
-
+  match '/play' => 'mastermind#play'
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
