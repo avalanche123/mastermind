@@ -4,6 +4,6 @@ class Codemaker
   end
 
   def make
-    @length.times.collect_concat { rand(@max) }
+    @length.times.collect_concat { [@max - 1, rand(@max)].min }
   end
 end
