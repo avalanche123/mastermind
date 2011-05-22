@@ -3,11 +3,13 @@ class CreateGames < ActiveRecord::Migration
     create_table :games do |t|
       t.integer :user_id
       t.boolean :won
+      t.string :code
 
       t.timestamps
     end
 
     add_index :games, :user_id
+    add_index :games, :won
   end
 
   def self.down
