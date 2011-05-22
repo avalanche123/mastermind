@@ -1,0 +1,26 @@
+<table>
+  <caption>Leader board</caption>
+  <thead>
+    <tr>
+      <th>Email</th>
+      <th>Wins</th>
+      <th>Loses</th>
+      <th>ANG</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @leaders.each do |leader| %>
+    <tr>
+      <td><%= leader.email %></td>
+      <td><%= leader.games_won %></td>
+      <td><%= leader.games_lost %></td>
+      <td><%= leader.average_guess_count %></td>
+    </tr>
+    <% end %>
+  </tbody>
+
+  <tfoot>
+    
+  </tfoot>
+</table>

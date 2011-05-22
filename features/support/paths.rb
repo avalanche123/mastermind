@@ -14,6 +14,8 @@ module NavigationHelpers
       '/users/sign_up'
     when /^the log in page$/
       '/users/sign_in'
+    when /^the leader board page$/
+      '/leaders'
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

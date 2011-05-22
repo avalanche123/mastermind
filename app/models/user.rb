@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
 
   class << self
     def find_top_ten
-      order('games_won DESC').limit(10)
+      order('games_won DESC, games_lost ASC, average_guess_count ASC').limit(10)
     end
   end
 end
