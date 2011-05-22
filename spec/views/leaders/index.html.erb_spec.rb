@@ -8,7 +8,7 @@ describe "leaders/index.html.erb" do
       games_total = games_lost + games_won
       guesses_average = (games_lost * 8 + games_won * rand(8)) / (games_total)
 
-      mock_model(User, {:id => id,
+      mock_model(User, {:email => "user#{id}@example.com",
                         :games_won => games_won,
                         :games_lost => games_lost,
                         :average_guess_count => guesses_average}).as_null_object
@@ -26,7 +26,7 @@ describe "leaders/index.html.erb" do
     rendered.should contain('ANG')
 
     leaders.each do |leader|
-      rendered.should contain(leader.id.to_s)
+      rendered.should contain(leader.email)
       rendered.should contain(leader.games_won.to_s)
       rendered.should contain(leader.games_lost.to_s)
       rendered.should contain(leader.average_guess_count.to_s)
