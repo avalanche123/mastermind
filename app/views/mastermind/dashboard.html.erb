@@ -22,7 +22,9 @@
   <tfoot>
     <tr>
       <td colspan="4">
-        Start a new game
+        <%= form_tag '/games', :method => :post do %>
+          <%= submit_tag "Start a new game" %>
+        <% end %>
       </td>
     </tr>
   </tfoot>
