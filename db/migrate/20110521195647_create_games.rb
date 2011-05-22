@@ -6,6 +6,8 @@ class CreateGames < ActiveRecord::Migration
 
       t.timestamps
     end
+
+    add_index :games, :user_id
   end
 
   def self.down
