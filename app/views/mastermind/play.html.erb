@@ -1,0 +1,19 @@
+<h1>Mastermind</h1>
+<% if @game.finished? %>
+  <% if @game.won? %>
+    <p>Congratulations, you won!</p>
+  <% else %>
+    <p>You lost, the code was <%= @game.code %></p>
+  <% end %>
+  <p><%= link_to('Play again?', play_path) %></p>
+<% else %>
+  <% if @guess %>
+  <p>You guessed <%= @guess.matches %> pegs</p>
+  <% end %>
+  <p>Enter your guess:</p>
+
+  <%= form_tag('/guess', :method => "post") do %>
+    <%= guess_input_tag('guess', Rails.application.config.pegs, Rails.application.config.colors) %>
+    <%= submit_tag("Guess") %>
+  <% end %>
+<% end %>
