@@ -11,11 +11,13 @@ class User < ActiveRecord::Base
   has_one :current_game, :class_name => Game.name, :conditions => "finished = 'f'"
 
   def play(code)
-    games.create! :code => code
+    game = games.create! :code => code
+    save!
+    game
   end
 
   def guesses_count_average
-    (self.guesses_count.to_f / self.read_attribute(:games_count).to_f).round(2)
+    (self.guesses_count.to_f / self.games_count.to_f).round(2)
   end
 
   class << self
