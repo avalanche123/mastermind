@@ -2,14 +2,10 @@ Given /^I am not logged in$/ do
   visit('/users/sign_out')
 end
 
-Then /^I should be logged in$/ do
-  pending
-end
-
 Given /^there is a user with email "([^"]*)" and password "([^"]*)"$/ do |email, password|
-  User.new(:email => email,
-           :password => password,
-           :password_confirmation => password).save!
+  User.create! :email => email,
+               :password => password,
+               :password_confirmation => password
 end
 
 Given /^I am logged in as "([^"]*)"$/ do |email|
