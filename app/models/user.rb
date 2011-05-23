@@ -7,7 +7,12 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :games_won, :games_lost, :average_guess_count
 
-  has_many :games
+  has_many :games, :dependent => :destroy, :autosave => true
+  has_one :current_game, :class_name => Game.name, :conditions => "finished = 'f'"
+
+  def play(code)
+    games.create :code => code
+  end
 
   class << self
     def find_top_ten
