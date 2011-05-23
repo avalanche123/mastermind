@@ -27,6 +27,23 @@ describe MastermindController do
     end
   end
 
+  describe "GET 'leaders'" do
+    leaders ||= []
+
+    before(:each) do
+      User.stub(:find_top_ten).and_return(leaders)
+      get :leaders
+    end
+
+    it "assigns @leaders" do
+      assigns[:leaders].should eq(leaders)
+    end
+
+    it "renders 'leaders'" do
+      response.should render_template("leaders")
+    end
+  end
+
   describe "GET 'play'" do
     context "when user is logged in" do
       code ||= '0110'

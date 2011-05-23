@@ -1,12 +1,16 @@
 class MastermindController < ApplicationController
-  before_filter :authenticate_user!, :except => :index
-  before_filter :initialize_game, :except => :index
+  before_filter :authenticate_user!, :only => [:play, :guess]
+  before_filter :initialize_game, :only => [:play, :guess]
 
   def index
     if user_signed_in?
       @user = current_user
       render :action => "dashboard"
     end
+  end
+
+  def leaders
+    @leaders = User.find_top_ten
   end
 
   def play

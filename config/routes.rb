@@ -1,7 +1,7 @@
 Mastermind::Application.routes.draw do
   root :to => "mastermind#index", :via => :get
   devise_for :users
-  match '/leaders' => 'leaders#index', :via => :get
+  match '/leaders' => 'mastermind#leaders', :via => :get
   match '/play' => 'mastermind#play', :via => :get
   match '/guess' => 'mastermind#guess', :via => :post
   
