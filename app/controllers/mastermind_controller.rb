@@ -1,6 +1,6 @@
 class MastermindController < ApplicationController
-  before_filter :authenticate_user!, :only => [:play]
-  before_filter :initialize_codemaker, :only => :play
+  before_filter :authenticate_user!, :except => :index
+  before_filter :initialize_game, :except => :index
 
   def index
     if user_signed_in?
@@ -10,13 +10,20 @@ class MastermindController < ApplicationController
   end
 
   def play
-    current_user.play(@codemaker.make) if current_user.finished_all_games?
-    @game = current_user.current_game
+  end
+
+  def guess
+    @guess = @game.guess(request[:guess].values.join)
+    render :action => "play"
   end
 
   private
 
-  def initialize_codemaker
-    @codemaker = Codemaker.new(4, 2)
+  def initialize_game
+    @game = current_user.current_game || current_user.play(make_code)
+  end
+
+  def make_code
+    Codemaker.new(Rails.application.config.pegs, Rails.application.config.colors).make
   end
 end
