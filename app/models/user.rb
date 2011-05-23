@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :games_won, :games_lost, :games_count, :guesses_total
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :games_won, :games_lost, :games_count, :guesses_count
 
   has_many :games, :dependent => :destroy, :autosave => true
   has_one :current_game, :class_name => Game.name, :conditions => "finished = 'f'"
