@@ -9,7 +9,7 @@ Given /^the following users are in the database:$/ do |table|
   table.hashes.each do |data|
     data[:password] = 'Pa55W0rd'
     data[:password_confirmation] = 'Pa55W0rd'
-    data[:games_count] = data[:games_won] + data[:games_lost]
+    data[:games_count] = data[:games_won].to_i + data[:games_lost].to_i
     User.create! data
   end
 end

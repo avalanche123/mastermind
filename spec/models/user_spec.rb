@@ -27,4 +27,13 @@ describe User do
       user.current_game.should eq(game)
     end
   end
+
+  describe '#guesses_count_average' do
+    it 'gets average number of guesses' do
+      user.games_count = 100
+      user.guesses_count = 500
+
+      user.guesses_count_average.should eq(5.0)
+    end
+  end
 end

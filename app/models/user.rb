@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
   end
 
   def guesses_count_average
-    
+    (self.guesses_count.to_f / self.games_count.to_f).round(2)
   end
 
   class << self

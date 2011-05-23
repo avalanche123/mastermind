@@ -29,7 +29,7 @@ describe "mastermind/leaders.html.erb" do
       rendered.should contain(leader.email)
       rendered.should contain(leader.games_won.to_s)
       rendered.should contain(leader.games_lost.to_s)
-      rendered.should contain(leader.average_guess_count.to_s)
+      rendered.should contain(leader.guesses_count_average.to_s)
     end
   end
 end
