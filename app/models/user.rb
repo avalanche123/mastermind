@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :games_won, :games_lost, :games_count, :guesses_count
 
-  has_many :games, :dependent => :destroy, :autosave => true
+  has_many :games, :dependent => :destroy, :autosave => true, :after_add => Proc.new { |user| user.games_count = user.games_count + 1 }
   has_one :current_game, :class_name => Game.name, :conditions => "finished = 'f'"
 
   def play(code)
@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
   end
 
   def guesses_count_average
-    (self.guesses_count.to_f / self.games_count.to_f).round(2)
+    (self.guesses_count.to_f / self.read_attribute(:games_count).to_f).round(2)
   end
 
   class << self

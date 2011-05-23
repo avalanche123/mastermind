@@ -17,7 +17,7 @@ describe User do
     end
 
     it 'adds new game to User#games' do
-      expect { user.play(code) }.to change { user.games.count }.by 1
+      expect { user.play(code) }.to change { user.games_count }.by 1
     end
   end
 
