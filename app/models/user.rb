@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   has_one :current_game, :class_name => Game.name, :conditions => "finished = 'f'"
 
   def play(code)
-    games.create :code => code
+    games.create! :code => code
   end
 
   class << self
