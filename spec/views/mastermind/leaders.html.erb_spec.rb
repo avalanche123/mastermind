@@ -11,7 +11,7 @@ describe "mastermind/leaders.html.erb" do
       mock_model(User, {:email => "user#{id}@example.com",
                         :games_won => games_won,
                         :games_lost => games_lost,
-                        :average_guess_count => guesses_average}).as_null_object
+                        :guesses_count_average => guesses_average}).as_null_object
     end
   end
 

@@ -14,6 +14,10 @@ class User < ActiveRecord::Base
     games.create! :code => code
   end
 
+  def guesses_count_average
+    
+  end
+
   class << self
     def find_top_ten
       order('games_won DESC, games_lost ASC, guesses_count ASC').limit(10)
