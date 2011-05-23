@@ -1,9 +1,9 @@
 Given /^the secret code is "([^"]*)"$/ do |code|
-  @codebreaker = Codebreaker.new(code.split(""))
+  @codebreaker = Codebreaker.new(code)
 end
 
 When /^I guess "([^"]*)"$/ do |guess|
-  @matches = @codebreaker.guess guess.split("")
+  @matches = @codebreaker.guess guess
 end
 
 Then /^the number of matches should be "([^"]*)"$/ do |matches|
