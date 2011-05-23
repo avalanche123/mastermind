@@ -1,8 +1,9 @@
 Mastermind::Application.routes.draw do
-  root :to => "mastermind#index"
+  root :to => "mastermind#index", :via => :get
   devise_for :users
-  match '/leaders' => 'leaders#index'
-  match '/play' => 'mastermind#play'
+  match '/leaders' => 'leaders#index', :via => :get
+  match '/play' => 'mastermind#play', :via => :get
+  match '/guess' => 'mastermind#guess', :via => :post
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
