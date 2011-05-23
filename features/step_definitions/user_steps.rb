@@ -17,11 +17,3 @@ Given /^I am logged in as "([^"]*)"$/ do |email|
   And %{I fill in "user_password" with "#{password}"}
   And %{I press "Sign in"}
 end
-
-Given /^the following users are in the database:$/ do |table|
-  table.hashes.each do |data|
-    data[:password] = 'Pa55W0rd'
-    data[:password_confirmation] = 'Pa55W0rd'
-    User.create! data
-  end
-end
