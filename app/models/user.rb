@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :games_won, :games_lost, :average_guess_count
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :games_won, :games_lost, :games_count, :guesses_total
 
   has_many :games, :dependent => :destroy, :autosave => true
   has_one :current_game, :class_name => Game.name, :conditions => "finished = 'f'"
@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
 
   class << self
     def find_top_ten
-      order('games_won DESC, games_lost ASC, average_guess_count ASC').limit(10)
+      order('games_won DESC, games_lost ASC, guesses_count ASC').limit(10)
     end
   end
 end
