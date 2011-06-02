@@ -1,6 +1,6 @@
 Feature: codebreaker
 
-  The code breaker is initialize submits a guess
+  The code breaker is initialized with a code and gets submitted a guess
 
   Each number in the guess that matches the number and position of a number
   in the secret code is considered a match

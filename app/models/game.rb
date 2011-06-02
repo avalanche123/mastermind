@@ -29,5 +29,6 @@ class Game < ActiveRecord::Base
     else
       self.user.games_lost = self.user.games_lost + 1
     end
+    self.user.save!
   end
 end
